@@ -69,3 +69,18 @@ function rmd5sum() {
   find "$folder" -type f -exec md5sum -b {} \;
 
 }
+
+function up () {
+
+  sudo apt update
+  sudo apt full-upgrade
+  sudo apt autoremove
+  sudo snap refresh
+  flatpak upgrade
+
+  if [ -f /var/run/reboot-required ]; then
+    echo 'Reboot Required'
+    cat /var/run/reboot-required.pkgs
+  else
+    echo 'No Reboot Required'
+  fi
