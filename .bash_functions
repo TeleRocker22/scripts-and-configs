@@ -84,3 +84,5 @@ function up () {
   else
     echo 'No Reboot Required'
   fi
+
+}
